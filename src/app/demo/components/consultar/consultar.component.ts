@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { VentaService, Venta } from './venta.service';
 import { CommonModule } from '@angular/common'; // Asegúrate de importar CommonModule
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-consultar',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './consultar.component.html',
   styleUrls: ['./consultar.component.scss']  // Aquí cambias la extensión
 })
@@ -17,7 +18,7 @@ export class ConsultarComponent implements OnInit{
   errorMessage: string = '';
 
   constructor(private  ventaService: VentaService) { }
-
+ 
   ngOnInit(): void {
   }
 

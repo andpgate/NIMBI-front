@@ -74,3 +74,31 @@
     }
   }
   
+  .boton {
+    display: flex; /* Centrar el botón en el contenedor */
+    justify-content: flex-end; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    margin: 0px 0; /* Espaciado alrededor del botón */
+  }
+  
+  .boton button {
+    background-color: #007bff; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 10px 20px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de la fuente */
+    cursor: pointer; /* Cambia el cursor al pasar el ratón */
+    transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
+  }
+  
+  /* Efecto al pasar el ratón */
+  .boton button:hover {
+    background-color: #0056b3; /* Color más oscuro al pasar el ratón */
+  }
+  
+  .boton button:focus {
+    outline: none; /* Sin contorno cuando el botón tiene el foco */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Sombra al hacer foco */
+  }
+  
