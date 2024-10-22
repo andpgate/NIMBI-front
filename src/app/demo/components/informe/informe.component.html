@@ -9,24 +9,45 @@
     <div class="informe-container">
         <h2>Recopilación de Informes</h2>
         <form (ngSubmit)="generarInforme()">
-            <div class="form-group">
-                <label for="organizacion">Organización:</label>
-                <select id="organizacion" [(ngModel)]="organizacion" name="organizacion" required>
-                    <option value="" disabled selected>Seleccione una organización</option>
-                    <option *ngFor="let org of organizaciones" [value]="org">{{ org }}</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="fechaInicial">Fecha Inicial:</label>
-                <input type="date" id="fechaInicial" [(ngModel)]="fechaInicial" name="fechaInicial" required>
-            </div>
-            <div class="form-group">
-                <label for="fechaFinal">Fecha Final:</label>
-                <input type="date" id="fechaFinal" [(ngModel)]="fechaFinal" name="fechaFinal" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Generar Informe</button>
+          <div class="form-group">
+            <label for="organizacion">Organización:</label>
+            <select id="organizacion" [(ngModel)]="organizacion" name="organizacion" required>
+              <option value="" disabled selected>Seleccione una organización</option>
+              <option *ngFor="let org of organizaciones" [value]="org">{{ org }}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="fechaInicial">Fecha Inicial:</label>
+            <input type="date" id="fechaInicial" [(ngModel)]="fechaInicial" name="fechaInicial" required>
+          </div>
+          <div class="form-group">
+            <label for="fechaFinal">Fecha Final:</label>
+            <input type="date" id="fechaFinal" [(ngModel)]="fechaFinal" name="fechaFinal" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Generar Informe</button>
         </form>
-    </div>
-    
+      
+        <div *ngIf="informeGenerado" class="informe-resultados">
+          <h3>Informe de {{ organizacion }} del {{ fechaInicial }} al {{ fechaFinal }}</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Productos Vendidos</th>
+                <th>Total Venta (COP)</th>
+                <th>Utilidad (%)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let dato of datosInforme">
+                <td>{{ dato.fecha }}</td>
+                <td>{{ dato.productosVendidos }}</td>
+                <td>{{ dato.totalVenta | currency:'USD' }}</td>
+                <td>{{ dato.utilidad }}%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>      
 </body>
 </html>
