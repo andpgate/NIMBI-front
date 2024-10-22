@@ -20,8 +20,14 @@ export class ConsultarComponent implements OnInit{
   constructor(private  ventaService: VentaService) { }
  
   ngOnInit(): void {
+    this.cargarVentas();
   }
 
+  cargarVentas(): void {
+    this.ventaService.getVentas().subscribe((data) => {
+      this.ventas = data;
+    });
+  }
   // Método para buscar venta por ID
   buscarVentaPorId(idVenta: number) {
     this.ventaService.getVentaById(idVenta).subscribe(

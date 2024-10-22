@@ -95,3 +95,35 @@
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Sombra al hacer foco */
   }
   
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left; /* Asegura que el texto esté alineado a la izquierda */
+  }
+  
+  th {
+    background-color: #f2f2f2; /* Color de fondo para los títulos */
+    font-weight: bold;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f9f9f9; /* Color de fondo alternado para filas pares */
+  }
+  
+  tr:hover {
+    background-color: #f1f1f1; /* Color de fondo al hacer hover sobre una fila */
+  }
+  
+  td {
+    text-align: center; /* Alineación centrada para los datos */
+  }
+  
+  th {
+    text-align: center; /* Alineación centrada para los títulos */
+  }
+  

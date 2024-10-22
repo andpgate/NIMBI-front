@@ -28,25 +28,6 @@
   <button routerLink ="/registrar">+ Registrar venta</button>
 </div>
 <div>
-    <div *ngIf="venta">
-      <h2>Detalles de la Venta</h2>
-      <p>ID Cliente: {{ venta.idCliente }}</p>
-      <p>Nombre Cliente: {{ venta.nombreCliente }}</p>
-      <p>Fecha: {{ venta.fecha }}</p>
-      <p>Total: {{ venta.total }}</p>
-
-      <h2>Productos Vendidos:</h2>
-      <ul>
-        <li *ngFor="let detalle of venta.detalleCantidadProductoVentaDTOList">
-          <p>Producto: {{ detalle.nombreProducto }}</p>
-          <p>Cantidad: {{ detalle.cantidad }}</p>
-          <p>Precio por Unidad: {{ detalle.precioUnidad }}</p>
-          <p>ID Detalle Producto: {{ detalle.idDetalleProducto }}</p>
-        </li>
-     </ul>
-    </div>
-  
-
     <div *ngIf="ventas.length > 0">
       <h3>Resultados:</h3>
       <ul>
@@ -55,7 +36,35 @@
         </li>
       </ul>
     </div>
-
+    <br>
+    <table class="table">
+        <thead>
+          <tr>
+            <th>ID venta</th>
+            <th>ID producto</th>
+            <th>Cantidad</th>
+            <th>Nombre producto</th>
+            <th>Precio por Unidad (USD)</th>
+            <th>Precio Total (USD)</th>
+            <th>Fecha de venta</th>
+            <th>Cliente</th>
+            <th>Utilidad</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let detalle of venta.detalleCantidadProductoVentaDTOList">
+            <td>{{ venta.idVenta }}</td>
+            <td>{{ detalle.idDetalleProducto }}</td>
+            <td>{{ detalle.cantidad }}</td>
+            <td>{{ detalle.nombreProducto }}</td>
+            <td>{{ detalle.precioUnidad }}</td>
+            <td>{{ venta.total }}</td>
+            <td> {{ venta.fecha }}</td>
+            <td>{{ venta.nombreCliente }}</td>
+            <td>{{ venta.utilidad }}</td>
+          </tr>
+        </tbody>
+      </table>
     
     
   </div>
