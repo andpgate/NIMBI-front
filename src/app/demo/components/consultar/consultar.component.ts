@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild} from '@angular/core';
 import { VentaService, Venta } from './venta.service';
 import { CommonModule } from '@angular/common'; // Asegúrate de importar CommonModule
 import { RouterLink } from '@angular/router';

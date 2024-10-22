@@ -13,6 +13,8 @@
     display: flex; /* Cambiar a flex para gestionar mejor el alineamiento horizontal */
     align-items: center; /* Centrar verticalmente todos los elementos */
     gap: 20px; /* Espacio entre elementos */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.366); /* Sombra sutil */
   
     .title2 {
       display: flex;
@@ -57,21 +59,12 @@
       gap: 10px; /* Espacio entre el label e inputs */
     }
   
-    .title2 button {
+    .filter-group button {
       cursor: pointer;
       margin-bottom: 1px;
       margin-left: 10px; /* Añadir espacio entre el botón y los inputs */
     }
   
-    /* Alinear los botones con los inputs correspondientes */
-    .title2 > button:nth-of-type(1) {
-      align-self: center; /* Asegura que el botón de "Buscar por ID" esté centrado */
-    }
-  
-    .title2 > button:nth-of-type(2) {
-      align-self: flex-start; /* Asegura que el botón "Buscar por Fecha" esté alineado con los inputs de fecha */
-      margin-left: 10px; /* Ajusta la separación del botón respecto a los inputs de fecha */
-    }
   }
   
   .boton {

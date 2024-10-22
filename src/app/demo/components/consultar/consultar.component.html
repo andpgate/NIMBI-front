@@ -15,8 +15,8 @@
 
         <div class="filter-group">
         <label for="fechaDesde">Buscar Ventas por Fecha</label>
-        <input #fechaDesde type="date" />
         <label for="fechaDesde">Fecha desde:</label>
+        <input #fechaDesde type="date" />
         <label for="fechaDesde">Fecha hasta:</label>
         <input #fechaHasta type="date" />
         <button (click)="buscarVentasPorFecha(fechaDesde.value, fechaHasta.value)">Buscar</button>
@@ -51,9 +51,12 @@
       <h3>Resultados:</h3>
       <ul>
         <li *ngFor="let v of ventas">
-          {{ v.idCliente }} - {{ v.nombreCliente}} - {{ v.fecha }} - {{ v.total }}
+          id Cliente: {{ v.idCliente }} - nombre cliente: {{ v.nombreCliente}} - fecha: {{ v.fecha }} - total pagado: {{ v.total }}
         </li>
       </ul>
     </div>
+
+    
+    
   </div>
   
