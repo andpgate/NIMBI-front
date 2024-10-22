@@ -1,1 +1,68 @@
-<p>registrar works!</p>
+<p-toast key="tst"></p-toast>
+<p-card  header="Nueva orden de venta"
+[style]="{ backgroundColor:'#dadee3', height:'60px'}"> 
+<div class="field grid custom-div">
+    <label htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0 custom-label">Nombre del cliente</label>
+    <div class="col-12 md:col-10">
+        <p-dropdown 
+            [options]="clients" 
+            optionLabel="nombre" 
+            [(ngModel)]="selectedClient" 
+            [style]="{ height: '30px', width:'70%'}">
+        </p-dropdown>
+    </div>
+</div>
+<div class="field grid custom-div">
+    <label htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0 custom-label">Fecha de la orden</label>
+    <div class="col-12 md:col-10">
+    <p-calendar 
+        [(ngModel)]="date" 
+        [iconDisplay]="'input'" 
+        [showIcon]="true" 
+        [style]="{ height: '30px'}"
+        inputId="icondisplay">
+    </p-calendar>
+    </div>
+</div>
+<div class="field grid custom-div">
+    <label htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0 custom-label">Producto</label>
+    <div class="col-12 md:col-10">
+        <p-dropdown 
+        [options]="productos" 
+        optionLabel="nombre" 
+        [(ngModel)]="selectedProducto" 
+        [style]="{ height: '30px', width:'50%'}">
+        </p-dropdown>
+        <label *ngIf="selectedProducto" class="ml-2">
+            Cantidad disponible: {{ selectedProducto.cantidad }}
+        </label>
+    </div> 
+</div>
+<div class="field grid custom-div">
+    <label htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0 custom-label">Cantidad de items</label>
+    <div class="col-12 md:col-10">
+        <input 
+            type="text" 
+            pInputText 
+            [(ngModel)]="value" 
+            [style]="{ height: '30px'}" 
+        />
+    </div>
+</div>
+<ng-template pTemplate="footer">
+    <div class="flex justify-content-end gap-3 mt-1">
+        <p-button label="Registrar venta" class="w-50" styleClass="w-full" (click)="validarCampos()"/>
+    </div>
+</ng-template>
+
+<!-- Dialog por si no se rellenan los campos -->
+<p-dialog header="Información" [(visible)]="showDialog" [modal]="true" [closable]="false">
+    <div>
+      <p>Confirmar registro de venta</p>
+        <div class="flex justify-content-end gap-2">
+        <p-button label="Cancelar" severity="secondary" (onClick)="showDialog = false" />
+        <p-button label="Ok" (onClick)="registrarVenta()" />
+        </div>
+    </div>
+</p-dialog>
+</p-card>
