@@ -61,7 +61,7 @@ export class RegistrarComponent {
 
   //mostrar mensaje error si la cantidad es mayor que la disponible
   showErrorCa() {
-    this.service.add({ key: 'tst', severity: 'error', summary: 'Error', detail: 'La cantidad ingresada supera la cantidad disponible'});
+    this.service.add({ key: 'tst', severity: 'error', summary: 'Error', detail: 'Ingresar una cantidad válida'});
   }
 
   //mostrar mensaje error si la cantidad es igual a 0

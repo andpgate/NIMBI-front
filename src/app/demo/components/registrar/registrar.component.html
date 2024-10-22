@@ -42,16 +42,17 @@
     <label htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0 custom-label">Cantidad de items</label>
     <div class="col-12 md:col-10">
         <input 
-            type="text" 
+            type="number" 
             pInputText 
-            [(ngModel)]="value" 
+            [(ngModel)]="value"
+            (ngModelChange)="verificarEntero()"
             [style]="{ height: '30px'}" 
         />
     </div>
 </div>
 <ng-template pTemplate="footer">
     <div class="flex justify-content-end gap-3 mt-1">
-        <p-button label="Registrar venta" class="w-50" styleClass="w-full" (click)="validarCampos()"/>
+        <p-button label="Registrar venta" class="w-50" styleClass="w-full" (click)="validarCampos();verificarEntero()"/>
     </div>
 </ng-template>
 
