@@ -34,19 +34,19 @@ export class InformeComponent {
         {
           fecha: '2024-09-05',
           productosVendidos: 150,
-          totalVenta: 12000,
+          totalVenta: 48000000,
           utilidad: 20,
         },
         {
           fecha: '2024-09-15',
           productosVendidos: 200,
-          totalVenta: 15000,
+          totalVenta: 60000000,
           utilidad: 18,
         },
         {
           fecha: '2024-09-25',
           productosVendidos: 180,
-          totalVenta: 14000,
+          totalVenta: 56000000,
           utilidad: 22,
         }
       ];
