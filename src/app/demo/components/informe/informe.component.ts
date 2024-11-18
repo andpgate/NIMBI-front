@@ -18,38 +18,16 @@ interface Informe {
 })
 export class InformeComponent {
 
-  organizaciones: string[] = ['Cliente A', 'Cliente B', 'Cliente C'];
+  organizaciones: string[] = [];
   organizacion: string = '';
-  fechaInicial: string = '2024-09-01';
-  fechaFinal: string = '2024-09-30';
+  fechaInicial: string = '';
+  fechaFinal: string = '';
   informeGenerado: boolean = false;
   datosInforme: Informe[] = [];
 
   generarInforme() {
     if (this.organizacion && this.fechaInicial && this.fechaFinal) {
       console.log('Generando informe para:', this.organizacion, this.fechaInicial, this.fechaFinal);
-
-      // Simular datos del informe
-      this.datosInforme = [
-        {
-          fecha: '2024-09-05',
-          productosVendidos: 150,
-          totalVenta: 48000000,
-          utilidad: 20,
-        },
-        {
-          fecha: '2024-09-15',
-          productosVendidos: 200,
-          totalVenta: 60000000,
-          utilidad: 18,
-        },
-        {
-          fecha: '2024-09-25',
-          productosVendidos: 180,
-          totalVenta: 56000000,
-          utilidad: 22,
-        }
-      ];
 
       this.informeGenerado = true; 
     } else {

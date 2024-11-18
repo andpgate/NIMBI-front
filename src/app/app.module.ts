@@ -5,11 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppLayoutModule } from './layout/app.layout.module';
 import { NotfoundComponent } from './demo/components/notfound/notfound.component';
 import { AccordionModule } from 'primeng/accordion';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [AppComponent, NotfoundComponent],
-    imports: [AppRoutingModule, AppLayoutModule,AccordionModule, FormsModule],
+    imports: [AppRoutingModule, AppLayoutModule,AccordionModule, FormsModule, HttpClientModule],
     providers: [
         { provide: LocationStrategy, useClass: PathLocationStrategy },
     ],
