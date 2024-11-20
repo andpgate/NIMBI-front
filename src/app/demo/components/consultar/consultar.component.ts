@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild} from '@angular/core';
-import { VentaService, Venta } from './venta.service';
+import { VentaService, Venta, DetalleCantidadProductoVentaDTO } from './venta.service';
 import { CommonModule } from '@angular/common'; // Asegúrate de importar CommonModule
 import { RouterLink } from '@angular/router';
 
@@ -15,19 +15,14 @@ export class ConsultarComponent implements OnInit{
 
   venta: Venta | null = null;
   ventas: Venta[] = [];
+
   errorMessage: string = '';
 
   constructor(private  ventaService: VentaService) { }
  
   ngOnInit(): void {
-    this.cargarVentas();
   }
 
-  cargarVentas(): void {
-    this.ventaService.getVentas().subscribe((data) => {
-      this.ventas = data;
-    });
-  }
   // Método para buscar venta por ID
   buscarVentaPorId(idVenta: number) {
     this.ventaService.getVentaById(idVenta).subscribe(
@@ -39,16 +34,20 @@ export class ConsultarComponent implements OnInit{
       }
     );
   }
-
+  
   // Método para buscar ventas por rango de fechas
   buscarVentasPorFecha(desde: string, hasta: string) {
     this.ventaService.getVentasPorFecha(desde, hasta).subscribe(
-      (data) => {
+      (data: Venta[]) => {
+        console.log('Datos recibidos:', data); // Verifica la estructura de los datos aquí
         this.ventas = data;
       },
+      
       (error) => {
         this.errorMessage = 'Error al consultar ventas';
       }
     );
   }
+
 }
+

@@ -20,7 +20,7 @@
         <label for="fechaDesde">Fecha hasta:</label>
         <input #fechaHasta type="date" />
         <button (click)="buscarVentasPorFecha(fechaDesde.value, fechaHasta.value)">Buscar</button>
-      </div>
+        </div>
     </div>
 </div>
 <br>
@@ -28,15 +28,7 @@
   <button routerLink ="/registrar">+ Registrar venta</button>
 </div>
 <div>
-    <div *ngIf="ventas.length > 0">
-      <h3>Resultados:</h3>
-      <ul>
-        <li *ngFor="let v of ventas">
-          id Cliente: {{ v.idCliente }} - nombre cliente: {{ v.nombreCliente}} - fecha: {{ v.fecha }} - total pagado: {{ v.total }}
-        </li>
-      </ul>
-    </div>
-    <br>
+<br>
     <table class="table">
         <thead>
           <tr>
@@ -48,10 +40,11 @@
             <th>Precio Total (USD)</th>
             <th>Fecha de venta</th>
             <th>Cliente</th>
-            <th>Utilidad</th>
           </tr>
         </thead>
         <tbody>
+        <!-- Renderizar búsqueda por ID -->
+        <ng-container *ngIf="venta">
           <tr *ngFor="let detalle of venta.detalleCantidadProductoVentaDTOList">
             <td>{{ venta.idVenta }}</td>
             <td>{{ detalle.idDetalleProducto }}</td>
@@ -59,13 +52,24 @@
             <td>{{ detalle.nombreProducto }}</td>
             <td>{{ detalle.precioUnidad }}</td>
             <td>{{ venta.total }}</td>
-            <td> {{ venta.fecha }}</td>
+            <td>{{ venta.fecha }}</td>
             <td>{{ venta.nombreCliente }}</td>
-            <td>{{ venta.utilidad }}</td>
           </tr>
+        </ng-container>
+
+        <!-- Renderizar búsqueda por fecha -->
+        <ng-container *ngFor="let venta of ventas">
+          <tr *ngFor="let detalle of venta.detalleCantidadProductoVentaDTOList">
+            <td>{{ venta.idVenta }}</td>
+            <td>{{ detalle.idDetalleProducto }}</td>
+            <td>{{ detalle.cantidad }}</td>
+            <td>{{ detalle.nombreProducto }}</td>
+            <td>{{ detalle.precioUnidad }}</td>
+            <td>{{ venta.total }}</td>
+            <td>{{ venta.fecha }}</td>
+            <td>{{ venta.nombreCliente }}</td>
+          </tr>
+        </ng-container>
         </tbody>
       </table>
-    
-    
   </div>
-  

@@ -31,7 +31,6 @@ export class VentaService {
     return this.http.get<any[]>(this.apiUrl);
   }
 
-
   // Método para consultar venta por ID
   getVentaById(idVenta: number): Observable<Venta> {
     return this.http.get<Venta>(`${this.apiUrl}/${idVenta}`);
@@ -39,7 +38,10 @@ export class VentaService {
 
   // Método para consultar ventas por rango de fechas
   getVentasPorFecha(desde: string, hasta: string): Observable<Venta[]> {
+    const url = `${this.apiUrl}/consultarPorFecha`; // URL completa
     let params = new HttpParams().set('fechaDesde', desde).set('fechaHasta', hasta);
-    return this.http.get<Venta[]>(`${this.apiUrl}/consultarPorFecha`, { params });
+    return this.http.get<Venta[]>(url, { params });
   }
+
+  
 }
