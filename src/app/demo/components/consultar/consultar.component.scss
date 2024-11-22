@@ -81,6 +81,8 @@
     border-radius: 5px; /* Bordes redondeados */
     padding: 10px 20px; /* Espaciado interno */
     font-size: 16px; /* Tamaño de la fuente */
+    margin-bottom: 10px;
+    margin-top: -40px;
     cursor: pointer; /* Cambia el cursor al pasar el ratón */
     transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
   }
@@ -130,5 +132,20 @@
   
   th {
     text-align: center; /* Alineación centrada para los títulos */
+  }
+  
+  .resumen-container {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .resumen-container p {
+    margin: 0;
+    line-height: 1.5;
   }
   

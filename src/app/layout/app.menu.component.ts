@@ -21,7 +21,7 @@ export class AppMenuComponent implements OnInit {
                     { label: 'Consultar venta', icon: 'pi pi-fw pi-search', routerLink: ['/consultar'] },
                     { label: 'Crear informe de ventas', icon: 'pi pi-fw pi-file', routerLink: ['/crear-informe'] }
                 ],
-                image: `<div class="center-image-container"> <img src="/assets/demo/images/galleria/logo.png" alt="image width="200" height="200""> </div>`
+                image: `<div class="center-image-container"> <img src="/assets/demo/images/galleria/logo.png" alt="image width="230" height="230""> </div>`
             }
         ];
     }

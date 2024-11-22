@@ -24,9 +24,15 @@
     </div>
 </div>
 <br>
-<div class="boton">
-  <button routerLink ="/registrar">+ Registrar venta</button>
+<div class="resumen-container">
+  <p>No. resultados encontrados: {{ totalResultados }}</p>
+  <p>Ingresos ventas señaladas: ${{ totalIngresos | number }} (USD)</p>
+  <div class="boton">
+    <button routerLink ="/registrar">+ Registrar venta</button>
+  </div>
 </div>
+
+
 <div>
 <br>
     <table class="table">
@@ -72,4 +78,9 @@
         </ng-container>
         </tbody>
       </table>
+      <div class="pagination-controls" *ngIf="totalResultados > pageSize">
+        <button (click)="cambiarPagina(-1)" [disabled]="currentPage === 1">Anterior</button>
+        <span>Página {{ currentPage }} de {{ Math.ceil(totalResultados / pageSize) }}</span>
+        <button (click)="cambiarPagina(1)" [disabled]="currentPage === Math.ceil(totalResultados / pageSize)">Siguiente</button>
+      </div>
   </div>

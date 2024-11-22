@@ -27,10 +27,6 @@ export class VentaService {
 
   constructor(private http: HttpClient) { }
 
-  getVentas(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
-  }
-
   // Método para consultar venta por ID
   getVentaById(idVenta: number): Observable<Venta> {
     return this.http.get<Venta>(`${this.apiUrl}/${idVenta}`);
