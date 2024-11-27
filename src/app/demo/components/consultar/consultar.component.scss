@@ -148,4 +148,37 @@
     margin: 0;
     line-height: 1.5;
   }
+
+  .search-container {
+    display: flex;
+    align-items: center; /* Alinear verticalmente */
+    gap: 10px; /* Espacio entre el input y el botón */
+  }
+  
+  .search-input {
+    height: 35px;
+    width: 250px;
+    padding: 5px 10px; /* Espaciado interno */
+    font-size: 14px; /* Tamaño de texto */
+    border: 1px solid #ccc;
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombras ligeras */
+  }
+  
+  .search-button {
+    height: 32px;
+    padding: 0 15px; /* Espaciado horizontal */
+    font-size: 14px;
+    background-color: #858a8e; /* Azul claro */
+    color: white;
+    border: none;
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombras ligeras */
+  }
+  
+  .search-button:hover {
+    background-color: #bfc0c1; /* Azul más oscuro */
+  }
+  
   

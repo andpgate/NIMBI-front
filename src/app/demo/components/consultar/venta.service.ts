@@ -39,5 +39,12 @@ export class VentaService {
     return this.http.get<Venta[]>(url, { params });
   }
 
+  // Método para consultar ventas por cliente
+  buscarVentasPorNombreCliente(nombreCliente: string): Observable<Venta[]> {
+    const params = new HttpParams().set('nombreCliente', nombreCliente);
+    return this.http.get<Venta[]>(`${this.apiUrl}/cliente`, { params });
+  }
+
+
   
 }

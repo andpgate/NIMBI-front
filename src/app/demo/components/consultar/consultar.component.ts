@@ -14,9 +14,6 @@ export class ConsultarComponent implements OnInit{
   title = 'LISTADO DE VENTAS';
   totalResultados: number = 0;
   totalIngresos: number = 0;
-  ventasPaginadas: any[] = []; // Ventas para mostrar en la página actual
-  pageSize: number = 10; // Tamaño de la página (20 resultados por página)
-  currentPage: number = 1; // Página actual
   venta: Venta | null = null;
   ventas: Venta[] = [];
 
@@ -46,11 +43,9 @@ export class ConsultarComponent implements OnInit{
   buscarVentasPorFecha(desde: string, hasta: string) {
     this.ventaService.getVentasPorFecha(desde, hasta).subscribe(
       (data: Venta[]) => {
-        console.log('Datos recibidos:', data); // Verifica la estructura de los datos aquí
         this.ventas = data;
-        this.totalResultados = data.length;  // Calculamos el número de resultados
+        this.totalResultados = this.ventas.length;  // Calculamos el número de resultados
         this.totalIngresos = data.reduce((total, venta) => total + (venta.total || 0), 0);  // Suma de los ingresos
-        this.paginarResultados(); // Cargar los resultados de la primera página
 
       },
       
@@ -60,15 +55,21 @@ export class ConsultarComponent implements OnInit{
     );
   }
 
-  paginarResultados() {
-    const startIndex = (this.currentPage - 1) * this.pageSize;
-    const endIndex = startIndex + this.pageSize;
-    this.ventasPaginadas = this.ventas.slice(startIndex, endIndex); // Obtener los resultados de la página actual
-  }
+  // Método para buscar por nombre del cliente
+  buscarVentasPorNombre(nombreCliente: string) {
+    this.ventaService.buscarVentasPorNombreCliente(nombreCliente).subscribe(
+      (data: Venta[]) => {
+        this.ventas = data; // Guardar las ventas encontradas
+        this.totalResultados = this.ventas.length;  // Calculamos el número de resultados
+        this.totalIngresos = data.reduce((total, venta) => total + (venta.total || 0), 0);  // Suma de los ingresos
 
-  cambiarPagina(direccion: number) {
-    this.currentPage += direccion; // Cambiar de página (siguiente/anterior)
-    this.paginarResultados(); // Actualizar los resultados de la página
+    },
+      (error) => {
+        this.errorMessage = 'Error al consultar ventas';
+      }
+    );
   }
+  
+
 }
 
